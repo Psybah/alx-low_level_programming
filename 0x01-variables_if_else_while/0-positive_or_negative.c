@@ -1,31 +1,32 @@
-#include <stdio.h>
-#include <stdlilb.h>
+#include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
 
 /**
- * main - Entry poiint
- * Return: 0 (Sucess)
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
-
 int main(void)
 {
 	int n;
-
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	printf("positive");
+	
+	printf("%d is ", n);
+	
 	if (n > 0)
 	{
-		printf("positive");
+		printf("positive\n");
 	}
-	else if (n == 0)
+	else if (n < 0)
 	{
-		printf("zero")
+		printf("negative\n");
 	}
 	else
 	{
-		printf("negative");
+		printf("zero\n");
 	}
-	printf("\n");
+	
 	return (0);
 }
