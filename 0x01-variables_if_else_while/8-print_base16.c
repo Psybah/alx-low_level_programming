@@ -6,12 +6,20 @@
  */
 int main(void)
 {
-	char hexDigit = '0';
+	int digit = 0;
 
-	while (hexDigit <= '9' || (hexDigit >= 'a' && hexDigit <= 'f'))
+	while (digit < 10)
 	{
-		putchar(hexDigit);
-		hexDigit++;
+		putchar(digit + '0');
+		digit++;
+	}
+
+	digit = 0;
+
+	while (digit < 6)
+	{
+		putchar('a' + digit);
+		digit++;
 	}
 
 	putchar('\n');
