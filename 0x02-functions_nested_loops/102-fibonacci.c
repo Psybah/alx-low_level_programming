@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ * Return: 0
+ */
 int main(void)
 {
 	int fib1 = 1, fib2 = 2, nextTerm;
@@ -11,12 +15,11 @@ int main(void)
 	{
 		nextTerm = fib1 + fib2;
 		printf(", %d", nextTerm);
-
 		fib1 = fib2;
 		fib2 = nextTerm;
 	}
 
 	printf("\n");
 
-	return 0;
+	return (0);
 }
