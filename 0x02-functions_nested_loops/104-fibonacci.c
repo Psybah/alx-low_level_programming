@@ -1,27 +1,42 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
+ * main - Finds and prints the first 98 Fibonacci numbers,
+ * starting with 1 and 2, followed by a new line.
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-    unsigned long fib1 = 1, fib2 = 2, next;
-    int count;
+	unsigned long i, j, k, j1, j2, k1, k2;
 
-    printf("%lu", fib1);
+	j = 1;
+	k = 2;
 
-    for (count = 2; count <= 98; count++)
-    {
-        printf(", %lu", fib2);
+	printf("%lu", j);
 
-        next = fib1 + fib2;
-        fib1 = fib2;
-        fib2 = next;
-    }
+	for (i = 1; i < 91; i++)
+	{
+		printf(", %lu", k);
+		k = k + j;
+		j = k - j;
+	}
 
-    printf("\n");
+	j1 = j / 1000000000;
+	j2 = j % 1000000000;
+	k1 = k / 1000000000;
+	k2 = k % 1000000000;
 
-    return (0);
+	for (i = 92; i < 99; ++i)
+	{
+		printf(", %lu", k1 + (k2 / 1000000000));
+		printf("%lu", k2 % 1000000000);
+		k1 = k1 + j1;
+		j1 = k1 - j1;
+		k2 = k2 + j2;
+		j2 = k2 - j2;
+	}
+
+	printf("\n");
+
+	return (0);
 }
