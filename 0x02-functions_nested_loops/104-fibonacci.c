@@ -7,21 +7,21 @@
  */
 int main(void)
 {
-	unsigned long fib1 = 1, fib2 = 2, next;
-	int count;
+    unsigned long fib1 = 1, fib2 = 2, next;
+    int count;
 
-	printf("%lu, %lu", fib1, fib2);
+    printf("%lu", fib1);
 
-	for (count = 3; count <= 98; count++)
-	{
-		next = fib1 + fib2;
-		printf(", %lu", next);
+    for (count = 2; count <= 98; count++)
+    {
+        printf(", %lu", fib2);
 
-		fib1 = fib2;
-		fib2 = next;
-	}
+        next = fib1 + fib2;
+        fib1 = fib2;
+        fib2 = next;
+    }
 
-	printf("\n");
+    printf("\n");
 
-	return (0);
+    return (0);
 }
