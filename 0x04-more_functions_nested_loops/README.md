@@ -1,0 +1,1 @@
+Explore fundamental C programming concepts, including nested loops, functions, declarations vs definitions, prototypes, variable scope, and essential gcc flags like -Wall -Werror -pedantic -Wextra -std=gnu89. Learn the usage of header files with #include.
