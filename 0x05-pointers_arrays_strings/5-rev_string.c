@@ -9,14 +9,13 @@ void rev_string(char *s)
 	int length = 0, i;
 	char temp;
 
-	while (*s != '\0')
+	/* Calculate the length of the string */
+	while (s[length] != '\0')
 	{
 		length++;
-		s++;
 	}
 
-	s--;
-
+	/* Swap characters from the beginning and end of the string */
 	for (i = 0; i < length / 2; i++)
 	{
 		temp = s[i];
