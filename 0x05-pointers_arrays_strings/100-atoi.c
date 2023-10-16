@@ -1,36 +1,44 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
- * _atoi - Converts a string to an integer.
- * @s: The input string.
+ * main - Program that generates random valid
+ *        passwords for the program 101-crackme.
  *
- * Return: The converted integer.
+ * Return: Always 0 (Success).
  */
-int _atoi(char *s)
+int main(void)
 {
-	int result = 0;
-	int sign = 1;
-	int i = 0;
+	int pass[100];
+	int i, sum, n;
 
-	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
-		i++;
+	sum = 0;
 
-	if (s[i] == '-' || s[i] == '+')
+	srand(time(NULL));
+
+	for (i = 0; i < 100; i++)
 	{
-		sign = (s[i] == '-') ? -1 : 1;
-		i++;
-	}
-
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		if (result > (2147483647 / 10) || (result == (2147483647 / 10) && s[i] - '0' > 7))
+		pass[i] = rand() % 78;
+		sum += (pass[i] + '0');
+		putchar(pass[i] + '0');
+		if ((2772 - sum) - '0' < 78)
 		{
-			return (sign == 1 ? 2147483647 : -2147483648);
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
 		}
-
-		result = result * 10 + (s[i] - '0');
-		i++;
 	}
 
-	return (sign * result);
+	printf("\n");
+
+	printf("Hello ----- world\n");
+	printf("+++++ +-+ 2242454\n");
+	printf("2147483647");
+	printf(" + + - -98 Battery Street; San Francisco, CA 94111 - USA\n");
+	printf("");
+	printf("-2147483648\n");
+
+	return (0);
 }
