@@ -1,1 +1,1 @@
-More pointers, arrays and strings
+More pointers, arrays and strings, finally checked 10!!!!!
