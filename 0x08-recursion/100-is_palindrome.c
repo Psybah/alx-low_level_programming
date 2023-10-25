@@ -9,7 +9,7 @@
  */
 int is_palindrome(char *s)
 {
-	int length = _strlen(s);
+	int length = recursive_strlen(s);
 
 	return (check_palindrome(s, 0, length - 1));
 }
@@ -38,20 +38,17 @@ int check_palindrome(char *s, int start, int end)
 }
 
 /**
- * _strlen - Calculates the length of a string.
+ * recursive_strlen - Calculates the length of a string recursively.
  * @s: The string.
  *
  * Return: The length of the string.
  */
-int _strlen(char *s)
+int recursive_strlen(char *s)
 {
-	int length = 0;
-
-	while (*s)
+	if (*s == '\0')
 	{
-		length++;
-		s++;
+		return (0);
 	}
 
-	return (length);
+	return (1 + recursive_strlen(s + 1));
 }
