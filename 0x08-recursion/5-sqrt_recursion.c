@@ -4,35 +4,35 @@
  * _sqrt_recursion - Returns the natural square root of a number.
  * @n: The number to calculate the square root of.
  *
- * Return: Natural square root of n. If n doesn't have a natural square root, return -1.
+ * Return: The natural square root of @n, or -1 if @n does not have
+ * a natural square root.
  */
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
-	{
 		return (-1);
-	}
 
-	return (calculate_sqrt(n, 1));
+	if (n == 0 || n == 1)
+		return (n);
+
+	return (find_sqrt(n, 2)); /* Start searching from 2 */
 }
 
 /**
- * calculate_sqrt - Helper function to recursively calculate the square root.
+ * find_sqrt - Helper function to find the square root recursively.
  * @n: The number to calculate the square root of.
- * @i: The current guess for the square root.
+ * @guess: The current guess for the square root.
  *
- * Return: The square root of n. If n does not have a natural square root, return -1.
+ * Return: The natural square root of @n, or -1 if @n does not have
+ * a natural square root.
  */
-int calculate_sqrt(int n, int i)
+int find_sqrt(int n, int guess)
 {
-	if (i * i == n)
-	{
-		return (i);
-	}
-	else if (i * i > n)
-	{
-		return (-1);
-	}
+	if (guess * guess == n)
+		return (guess);
 
-	return calculate_sqrt(n, i + 1);
+	if (guess * guess > n)
+		return (-1); /* n does not have a natural square root */
+
+	return (find_sqrt(n, guess + 1));
 }
