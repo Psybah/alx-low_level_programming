@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 /**
- * main - adds positive numbers
- * @argc: argument count
- * @argv: argument vector
+ * main - Entry point of the program
+ * @argc: The number of command line arguments
+ * @argv: An array containing the command line arguments
  * Return: 0 on success, 1 on error
  */
 int main(int argc, char *argv[])
 {
 	int sum = 0;
-	int i, num;
+	int i, j;
 
 	if (argc == 1)
 	{
@@ -20,21 +20,16 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		num = atoi(argv[i]);
-
-		if (num == 0 && argv[i][0] != '0')
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			printf("Error\n");
-			return (1);
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
 
-		if (num < 0 || (num == 0 && argv[i][0] != '0'))
-		{
-			printf("Error\n");
-			return (1);
-		}
-
-		sum += num;
+		sum += atoi(argv[i]);
 	}
 
 	printf("%d\n", sum);
