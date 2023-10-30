@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * count_words - counts the number of words in a string
@@ -14,9 +14,12 @@ static int count_words(char *str)
 
 	while (str[len] != '\0')
 	{
-		if (str[len] != ' ' && (str[len + 1] == ' ' || str[len + 1] == '\0'))
+		while (str[len] == ' ')
+			len++;
+		if (str[len] != '\0')
 			word_count++;
-		len++;
+		while (str[len] != ' ' && str[len] != '\0')
+			len++;
 	}
 
 	return (word_count);
@@ -69,24 +72,23 @@ char **strtow(char *str)
 	if (words == NULL)
 		return (NULL);
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < word_count; i++)
 	{
-		if (str[i] != ' ')
+		while (str[len] == ' ')
+			len++;
+		start = len;
+		while (str[len] != ' ' && str[len] != '\0')
+			len++;
+		end = len;
+		words[k] = extract_word(str, start, end);
+		if (words[k] == NULL)
 		{
-			start = i;
-			while (str[i] != ' ' && str[i] != '\0')
-				i++;
-			end = i;
-			words[k] = extract_word(str, start, end);
-			if (words[k] == NULL)
-			{
-				for (i = 0; i < k; i++)
-					free(words[i]);
-				free(words);
-				return (NULL);
-			}
-			k++;
+			for (i = 0; i < k; i++)
+				free(words[i]);
+			free(words);
+			return (NULL);
 		}
+		k++;
 	}
 
 	words[k] = NULL;
