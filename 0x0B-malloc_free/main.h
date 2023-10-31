@@ -9,9 +9,6 @@ int **alloc_grid(int width, int height);
 void free_grid(int **grid, int height);
 char *argstostr(int ac, char **av);
 char **strtow(char *str);
-int count_words(char *str);
-char **allocate_memory(int count);
-void populate_array(char *str, char **words);
-
+int count_words(char *s);
 
 #endif
