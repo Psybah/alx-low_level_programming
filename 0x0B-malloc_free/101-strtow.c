@@ -77,13 +77,13 @@ void populate_array(char *str, char **words)
 char **strtow(char *str)
 {
 	int count;
-	chat **words;
+	char **words;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
 	count = count_words(str);
-	words = allocate_memory(count);
+	**words = allocate_memory(count);
 
 	if (words == NULL)
 		return (NULL);
