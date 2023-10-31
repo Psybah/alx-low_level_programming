@@ -76,10 +76,12 @@ void populate_array(char *str, char **words)
  */
 char **strtow(char *str)
 {
+	int count;
+
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
-	int count = count_words(str);
+	count = count_words(str);
 	char **words = allocate_memory(count);
 
 	if (words == NULL)
