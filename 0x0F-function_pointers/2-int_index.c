@@ -6,7 +6,7 @@
  * @size: size of the array
  * @cmp: pointer to the comparison function
  *
- * Return: index of first element for which cmp does not return 0 or -1 if no match
+ * Return: index of first element which cmp does not return 0 or -1 if no match
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
