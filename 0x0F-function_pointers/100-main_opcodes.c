@@ -2,37 +2,48 @@
 #include <stdlib.h>
 
 /**
- * main - Entry point of the program
- * @argc: Argument count
- * @argv: Argument vector
- * Return: 0 on success, 1 on incorrect atguements, 2 on negative bytes
+ * print_opcodes - print the opcodes of this program
+ * @a: address of the main function
+ * @n: number of bytes to print
+ *
+ * Return: void
  */
-int main(int argc, char *argv[])
+void print_opcodes(char *a, int n)
 {
-	int i, bytes;
+	int i;
+
+	for (i = 0; i < n; i++)
+	{
+		printf("%.2hhx", a[i]);
+		if (i < n - 1)
+			printf(" ");
+	}
+	printf("\n");
+
+}
+
+/**
+ * main - prints the opcodes of its own main function
+ * @argc: number of arguments passed to the function
+ * @argv: array of pointers to arguments
+ *
+ * Return: always O
+ */
+int main(int argc, char **argv)
+{
+	int n;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		return (1);
+		exit(1);
 	}
-
-	bytes = atoi(argv[1]);
-
-	if (bytes < 0)
+	n = atoi(argv[1]);
+	if (n < 0)
 	{
 		printf("Error\n");
-		return (2);
+		exit(2);
 	}
-
-	char *opcode_ptr = (char *)main;
-
-	for (i = 0; i < bytes; i++)
-	{
-		printf("%02hhx ", opcode_ptr[i]);
-	}
-
-	printf("\n");
-
+	print_opcodes((char *)&main, n);
 	return (0);
 }
