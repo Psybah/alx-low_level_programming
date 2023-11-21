@@ -7,21 +7,23 @@
 *Return: void
 */
 
+/**
+ * free_listint2 - function that frees a listint_t list
+ * @head: a double pointer of lists
+ *
+ * Return: void
+ */
+
 void free_listint2(listint_t **head)
 {
-	listint_t *cursor;
-	listint_t **temp = head;
+	listint_t *next;
 
-	if (temp != NULL)
+	if (head == NULL)
+		return;
+	while (*head != NULL)
 	{
-		while (*head != NULL)
-		{
-			cursor = *head;
-			free(cursor);
-			*head = (*head)->next;
-		}
-
-		*temp = NULL;
-
+		next = (*head)->next;
+		free(*head);
+		*head = next;
 	}
 }
